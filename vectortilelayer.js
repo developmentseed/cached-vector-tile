@@ -4,12 +4,16 @@ var CachedVectorTileFeature = require('./vectortilefeature.js')
 
 module.exports = CachedVectorTileLayer
 
+/**
+ * A vector tile layer.  Implements the interface defined in the [vector-tile-js API reference](https://github.com/mapbox/vector-tile-js)
+ * @name CachedVectorTileLayer
+ */
 function CachedVectorTileLayer (layer, properties) {
   // Public
+  this.length = layer.length
   this.version = layer.version
   this.name = layer.name
   this.extent = layer.extent
-  this.length = layer.length
 
   // Private
   this._features = []
@@ -29,6 +33,9 @@ CachedVectorTileLayer.prototype.feature = function (i) {
   return new CachedVectorTileFeature(this._features[i])
 }
 
+/**
+ * Returns a plain JS object representation of the vector tile layer.
+ */
 CachedVectorTileLayer.prototype.serialize = function () {
   return {
     version: this.version,

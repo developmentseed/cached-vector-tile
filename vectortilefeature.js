@@ -4,6 +4,10 @@ var Point = require('point-geometry')
 
 module.exports = CachedVectorTileFeature
 
+/**
+ * A vector tile feature.  Implements the interface defined in the [vector-tile-js API reference](https://github.com/mapbox/vector-tile-js).
+ * @name CachedVectorTileFeature
+ */
 function CachedVectorTileFeature (feature, propertyMap) {
   // Public
   this.id = feature.id
@@ -27,11 +31,16 @@ CachedVectorTileFeature.types = ['Unknown', 'Point', 'LineString', 'Polygon']
 CachedVectorTileFeature.prototype.loadGeometry = function () {
   return cloneGeometry(this._lines)
 }
+
 CachedVectorTileFeature.prototype.bbox = function () {
   return this._bbox.slice()
 }
+
 CachedVectorTileFeature.prototype.toGeoJSON = VTFeature.prototype.toGeoJSON
 
+/**
+ * Returns a plain JS object representation of the vector tile feature.
+ */
 CachedVectorTileFeature.prototype.serialize = function () {
   return {
     id: this.id,

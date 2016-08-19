@@ -1,4 +1,4 @@
-# cached-vector-tile
+# cached-vector-tile [![CircleCI](https://circleci.com/gh/developmentseed/cached-vector-tile.svg?style=svg)](https://circleci.com/gh/developmentseed/cached-vector-tile)
 
 ## Install and Use
 
